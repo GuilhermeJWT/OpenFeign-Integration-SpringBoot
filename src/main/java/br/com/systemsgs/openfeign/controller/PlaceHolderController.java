@@ -1,6 +1,7 @@
 package br.com.systemsgs.openfeign.controller;
 
 import br.com.systemsgs.openfeign.client.JsonPlaceHolderClient;
+import br.com.systemsgs.openfeign.dto.placeholder.ModelPostDTO;
 import br.com.systemsgs.openfeign.dto.placeholder.ModelUsuarioDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +17,14 @@ public class PlaceHolderController {
     @Autowired
     private JsonPlaceHolderClient jsonPlaceHolderClient;
 
-    @GetMapping(value = "/lista")
+    @GetMapping(value = "/listaUsers")
     public List<ModelUsuarioDTO> recuperTodosUsuarios(){
         return jsonPlaceHolderClient.getUsuarios();
+    }
+
+    @GetMapping(value = "/listaPosts")
+    public List<ModelPostDTO> recuperaTodosPost(){
+        return jsonPlaceHolderClient.getPosts();
     }
 
 }
