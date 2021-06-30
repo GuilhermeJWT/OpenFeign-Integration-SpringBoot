@@ -1,5 +1,5 @@
 
-package br.com.systemsgs.openfeign.dto;
+package br.com.systemsgs.openfeign.dto.placeholder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,13 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "street",
-    "suite",
-    "city",
-    "zipcode",
-    "geo"
-})
+@JsonPropertyOrder({"street", "suite", "city", "zipcode", "geo"})
 @Generated("jsonschema2pojo")
 public class Address {
 

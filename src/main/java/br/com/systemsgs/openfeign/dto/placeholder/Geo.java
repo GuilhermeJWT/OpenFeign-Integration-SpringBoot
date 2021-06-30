@@ -1,5 +1,5 @@
 
-package br.com.systemsgs.openfeign.dto;
+package br.com.systemsgs.openfeign.dto.placeholder;
 
 import java.util.HashMap;
 import java.util.Map;
