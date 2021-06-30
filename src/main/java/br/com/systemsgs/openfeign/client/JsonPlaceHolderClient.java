@@ -4,6 +4,7 @@ import br.com.systemsgs.openfeign.dto.placeholder.ModelPostDTO;
 import br.com.systemsgs.openfeign.dto.placeholder.ModelUsuarioDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -15,5 +16,8 @@ public interface JsonPlaceHolderClient {
 
     @GetMapping(value = "/posts")
     public List<ModelPostDTO> getPosts();
+
+    @GetMapping(value = "/posts/{id}")
+    public ModelPostDTO recuperaPorId(@PathVariable("id") Integer id);
 
 }
