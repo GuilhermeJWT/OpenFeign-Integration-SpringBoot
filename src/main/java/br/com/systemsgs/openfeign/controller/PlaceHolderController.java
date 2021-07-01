@@ -6,10 +6,8 @@ import br.com.systemsgs.openfeign.dto.placeholder.ModelFotosDTO;
 import br.com.systemsgs.openfeign.dto.placeholder.ModelPostDTO;
 import br.com.systemsgs.openfeign.dto.placeholder.ModelUsuarioDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -43,6 +41,13 @@ public class PlaceHolderController {
     @GetMapping(value = "/fotos")
     public List<ModelFotosDTO> listaFotos(){
         return jsonPlaceHolderClient.getFotos();
+    }
+
+    @PostMapping(value = "/salvaPost")
+    public ResponseEntity<ModelPostDTO> salvaPost(@RequestBody ModelPostDTO modelPostDTO){
+        ModelPostDTO postSalvo = jsonPlaceHolderClient.salvaPost(modelPostDTO);
+
+        return ResponseEntity.ok(postSalvo);
     }
 
 }

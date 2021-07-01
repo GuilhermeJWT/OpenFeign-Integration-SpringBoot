@@ -7,6 +7,7 @@ import br.com.systemsgs.openfeign.dto.placeholder.ModelUsuarioDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -28,4 +29,6 @@ public interface JsonPlaceHolderClient {
     @GetMapping(value = "/photos")
     public List<ModelFotosDTO> getFotos();
 
+    @PostMapping(value = "/posts")
+    ModelPostDTO salvaPost(ModelPostDTO modelPostDTO);
 }
