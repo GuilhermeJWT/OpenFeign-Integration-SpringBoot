@@ -18,8 +18,13 @@ public class MakeupController {
     private MakeupClient makeupClient;
 
     @GetMapping(value = "/{brand}")
-    public List<ModelMakeupDTO> pesquisaBrando(@PathVariable("brand") String brand){
+    public List<ModelMakeupDTO> pesquisaBrand(@PathVariable("brand") String brand){
         return makeupClient.pesquisaBrand(brand);
+    }
+
+    @GetMapping(value = "/{brand}/{product_type}")
+    public List<ModelMakeupDTO> pesquisaBatomMarca(@PathVariable("brand") String brand, @PathVariable("product_type")String product_type){
+        return makeupClient.pesquisaBatomMarca(brand, product_type);
     }
 
 }
