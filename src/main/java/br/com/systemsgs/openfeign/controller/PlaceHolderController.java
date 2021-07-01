@@ -50,4 +50,14 @@ public class PlaceHolderController {
         return ResponseEntity.ok(postSalvo);
     }
 
+    @DeleteMapping(value = "/deletaPorId/{id}")
+    public String deletaPost(@PathVariable("id") Integer id){
+        ModelPostDTO teste = jsonPlaceHolderClient.recuperaPorId(id);
+        System.out.println(teste.getId());
+        System.out.println(teste.getTitle());
+        ModelPostDTO idDeletado = jsonPlaceHolderClient.deletaPost(id);
+
+        return "Post deletado com Sucesso: " + idDeletado.getTitle();
+    }
+
 }

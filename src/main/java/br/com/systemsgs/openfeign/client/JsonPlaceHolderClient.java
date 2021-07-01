@@ -5,6 +5,7 @@ import br.com.systemsgs.openfeign.dto.placeholder.ModelFotosDTO;
 import br.com.systemsgs.openfeign.dto.placeholder.ModelPostDTO;
 import br.com.systemsgs.openfeign.dto.placeholder.ModelUsuarioDTO;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,4 +32,7 @@ public interface JsonPlaceHolderClient {
 
     @PostMapping(value = "/posts")
     ModelPostDTO salvaPost(ModelPostDTO modelPostDTO);
+
+    @DeleteMapping(value = "/posts/{id}")
+    ModelPostDTO deletaPost(@PathVariable("id") Integer id);
 }
