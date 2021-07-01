@@ -2,6 +2,7 @@ package br.com.systemsgs.openfeign.controller;
 
 import br.com.systemsgs.openfeign.client.JsonPlaceHolderClient;
 import br.com.systemsgs.openfeign.dto.placeholder.ModelDescricaoPost;
+import br.com.systemsgs.openfeign.dto.placeholder.ModelFotosDTO;
 import br.com.systemsgs.openfeign.dto.placeholder.ModelPostDTO;
 import br.com.systemsgs.openfeign.dto.placeholder.ModelUsuarioDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,11 @@ public class PlaceHolderController {
     @GetMapping(value = "/pesquisaPostComents/{id}")
     public List<ModelDescricaoPost> pesquisaPostComments(@PathVariable("id") Integer id){
         return jsonPlaceHolderClient.pesquisaPostComments(id);
+    }
+
+    @GetMapping(value = "/fotos")
+    public List<ModelFotosDTO> listaFotos(){
+        return jsonPlaceHolderClient.getFotos();
     }
 
 }

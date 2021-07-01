@@ -1,6 +1,7 @@
 package br.com.systemsgs.openfeign.client;
 
 import br.com.systemsgs.openfeign.dto.placeholder.ModelDescricaoPost;
+import br.com.systemsgs.openfeign.dto.placeholder.ModelFotosDTO;
 import br.com.systemsgs.openfeign.dto.placeholder.ModelPostDTO;
 import br.com.systemsgs.openfeign.dto.placeholder.ModelUsuarioDTO;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -23,5 +24,8 @@ public interface JsonPlaceHolderClient {
 
     @GetMapping(value = "/posts/{id}/comments")
     public List<ModelDescricaoPost> pesquisaPostComments(@PathVariable("id") Integer id);
+
+    @GetMapping(value = "/photos")
+    public List<ModelFotosDTO> getFotos();
 
 }
